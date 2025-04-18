@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DIY木材カットプランナー</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1><span role="img" aria-label="wood">🌲</span> DIY木材カットプランナー</h1>
+
+    <form id="calculationForm" class="input-section">
+      <h2><span role="img" aria-label="wrench">🔧</span> 入力パラメータ</h2>
+      <div class="input-group">
+        <label for="materialLength">材料長さ (mm):</label>
+        <input type="number" id="materialLength" value="1820" step="1" min="1" required>
+      </div>
+      <div class="input-group">
+        <label for="unitPrice">材料単価 (円):</label>
+        <input type="number" id="unitPrice" value="600" step="1" min="0" required>
+      </div>
+      <div class="input-group">
+        <label for="cutPrice">カット作業量 (円):</label>
+        <input type="number" id="cutPrice" value="50" step="1" min="0" required>
+      </div>
+      <div class="input-group">
+        <label for="bladeWidth">鋸刃 (mm):</label>
+        <input type="number" id="bladeWidth" value="3" step="0.1" min="0" required>
+      </div>
+      <div class="input-group">
+        <label for="partsList">切り出す部材リスト (mm):<br>(カンマ/改行区切り)</label>
+        <textarea id="partsList" placeholder="例: 320, 244, 470..." rows="6" required>320,244,470,470,470,470,320,244,470,470,470,470</textarea>
+      </div>
+      <div id="error-message" class="error" style="display: none;"></div>
+      <button type="submit"><span role="img" aria-label="calculator">🧮</span> 計算実行</button>
+    </form>
+
+    <div id="result" class="output-section" style="display: none;">
+      <h2><span role="img" aria-label="chart">📊</span> 計算結果概要</h2>
+      <div id="summary"></div>
+      <div id="costs"></div>
+    </div>
+
+    <div id="details" class="output-section" style="display: none;">
+      <h3><span role="img" aria-label="scissors">✂️</span> カット内訳</h3>
+      <ul id="details-list"></ul>
+    </div>
+
+    <div id="shareSection" class="output-section" style="display: none;">
+      <h3><span role="img" aria-label="link">🔗</span> 入力パラメータを共有</h3>
+      <div class="share-controls">
+        <input type="text" id="shareUrlInput" readonly title="共有用URL">
+        <button id="copyShareUrlButton" type="button" title="URLをクリップボードにコピー">URLをクリップボードにコピー</button>
+        <span id="copyFeedback" class="copy-feedback"></span>
+      </div>
+    </div>
+
+  </div>
+  <script type="module" src="scripts/main.js"></script>
+</body>
+
+</html>

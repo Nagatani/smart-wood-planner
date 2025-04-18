@@ -1,0 +1,435 @@
+/* --- Existing styles --- */
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2,
+h3 {
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+.input-section,
+.output-section {
+  margin-bottom: 25px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+label {
+  display: inline-block;
+  width: 140px;
+  margin-right: 10px;
+  text-align: right;
+  font-weight: bold;
+  color: #555;
+}
+
+input[type="number"],
+textarea {
+  flex-grow: 1;
+  min-width: 180px;
+  padding: 8px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+textarea {
+  height: 120px;
+  vertical-align: top;
+  resize: vertical;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+#result,
+#details {
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  padding-top: 25px;
+}
+
+#details ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#details li {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-left: 5px solid #3498db;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#details li strong {
+  color: #2980b9;
+}
+
+.summary-item,
+.cost-item {
+  margin-bottom: 8px;
+  font-size: 1.1em;
+}
+
+.cost-item span {
+  font-weight: bold;
+  color: #e74c3c;
+}
+
+.error {
+  color: #e74c3c;
+  font-weight: bold;
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid #e74c3c;
+  border-radius: 4px;
+  background-color: #fbeae5;
+}
+
+/* --- Styles for Graphical Bar --- */
+.material-bar-container {
+  margin-top: 12px;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 4px;
+  box-sizing: border-box;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.material-bar {
+  display: flex;
+  height: 30px;
+  width: 100%;
+  background-color: #e9ecef;
+  border-radius: 3px;
+  overflow: hidden;
+  font-size: 11px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.part-bar,
+.waste-bar {
+  height: 100%;
+  box-sizing: border-box;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: filter 0.2s ease;
+  position: relative;
+  cursor: help;
+}
+
+.part-bar:last-child,
+.waste-bar:last-child {
+  box-shadow: none;
+}
+
+.part-bar:hover,
+.waste-bar:hover {
+  filter: brightness(1.1);
+}
+
+/* Text styling inside bars */
+.bar-text {
+  padding: 0 4px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Darker text for light background colors */
+.dark-text .bar-text {
+  color: #333;
+  text-shadow: none;
+}
+
+
+
+/* --- グラフィカルバー用のスタイル --- */
+.material-bar-container {
+  margin-top: 12px;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 4px;
+  box-sizing: border-box;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+.material-bar {
+  display: flex;
+  height: 30px;
+  width: 100%;
+  background-color: #e9ecef;
+  border-radius: 3px;
+  overflow: hidden;
+  font-size: 11px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.part-bar,
+.waste-bar {
+  height: 100%;
+  box-sizing: border-box;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: filter 0.2s ease;
+  position: relative;
+  cursor: help;
+}
+
+.part-bar:last-child,
+.waste-bar:last-child {
+  box-shadow: none;
+}
+
+.part-bar:hover,
+.waste-bar:hover {
+  filter: brightness(1.1);
+}
+
+.bar-text {
+  padding: 0 4px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.dark-text .bar-text {
+  color: #333;
+  text-shadow: none;
+}
+
+/* --- 結果共有セクション用のスタイル --- */
+.share-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+#shareUrlInput {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  font-size: 0.9em;
+}
+
+#copyShareUrlButton {
+  padding: 8px 15px;
+  cursor: pointer;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+#copyShareUrlButton:hover {
+  background-color: #5a6268;
+}
+
+#copyShareUrlButton:active {
+  background-color: #4e555b;
+}
+/* --- 結果共有セクション用のスタイル (修正版) --- */
+#shareSection {
+  margin-top: 30px; /* 上部のマージンを増やす */
+  padding-top: 25px; /* 上部のパディング */
+  border-top: 1px solid #eee; /* 区切り線 */
+}
+
+#shareSection h3 { /* 見出しのスタイル調整 */
+  margin-bottom: 18px; /* 見出し下のマージン */
+  font-size: 1.3em; /* 見出しサイズ調整 */
+}
+
+.share-controls {
+  display: flex;
+  align-items: center; /* ★ 縦方向の中央揃え */
+  gap: 12px; /* ★ 要素間のスペースを調整 */
+  margin-bottom: 15px; /* 下部のマージン */
+  flex-wrap: wrap; /* 画面が狭い場合に折り返す */
+}
+
+#shareUrlInput {
+  flex-grow: 1; /* 利用可能なスペースを埋める */
+  padding: 10px 12px; /* ★ パディング調整 (上下: 10px, 左右: 12px) */
+  border: 1px solid #ced4da; /* 少し濃いめのボーダー */
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  font-size: 1em; /* フォントサイズ調整 */
+  min-width: 200px; /* 最小幅 */
+  box-sizing: border-box; /* パディングとボーダーを幅・高さに含める */
+  height: 40px; /* ★ 高さを直接指定して揃える */
+  line-height: 1.5; /* テキストの垂直位置調整 */
+}
+
+#copyShareUrlButton {
+  padding: 0 18px; /* ★ パディング調整 (左右のみ) */
+  cursor: pointer;
+  background-color: #007bff; /* Primary color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+  box-sizing: border-box;
+  height: 40px; /* ★ 高さを入力欄と合わせる */
+  line-height: 40px; /* ボタンテキストを垂直中央に */
+  font-size: 0.95em;
+}
+
+#copyShareUrlButton:hover {
+  background-color: #0056b3;
+}
+#copyShareUrlButton:active {
+  background-color: #004085;
+}
+#copyShareUrlButton:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* コピーフィードバック */
+#copyFeedback {
+  font-size: 0.9em;
+  color: #28a745;
+  white-space: nowrap;
+  height: 20px;
+  line-height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* 説明文 */
+#shareSection p small {
+  color: #6c757d;
+  display: block;
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+
+/* クリック時のフィードバック */
+.copy-feedback {
+  font-size: 0.9em;
+  color: #28a745;
+  margin-left: 5px;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .input-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  label {
+    width: auto;
+    text-align: left;
+    margin-bottom: 5px;
+  }
+
+  input[type="number"],
+  textarea {
+    width: 100%;
+  }
+
+  .material-bar {
+    font-size: 9px;
+    height: 25px;
+    line-height: 25px;
+  }
+
+  .share-controls {
+    flex-wrap: wrap;
+    gap: 8px; /* スマホではギャップを詰める */
+  }
+
+  /* Small screens: wrap controls */
+  #shareUrlInput {
+    width: 100%;
+    margin-bottom: 5px;
+      width: 100%;
+      margin-bottom: 8px; /* ボタンとの間にスペース */
+      order: 1; /* 順序: 入力欄 */
+      min-width: unset;
+      height: 38px; /* スマホでは少し高さを詰める */
+  }
+  #copyShareUrlButton {
+      padding: 0 15px;
+      order: 2; /* 順序: ボタン */
+      height: 38px; /* スマホでは少し高さを詰める */
+      line-height: 38px;
+      flex-shrink: 0; /* ボタンが縮まないように */
+  }
+   #copyFeedback {
+      order: 3; /* 順序: フィードバック */
+      margin-left: 0;
+      width: 100%; /* 全幅を使用 */
+      text-align: left; /* 左寄せ */
+      margin-top: 5px;
+      height: auto; /* スマホでは高さを自動に */
+      line-height: 1.4;
+      display: block; /* ブロック要素に */
+  }
+}
+/* --- レスポンシブ調整 --- */
+@media (max-width: 600px) {
+}
