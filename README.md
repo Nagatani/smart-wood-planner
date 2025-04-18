@@ -1,4 +1,7 @@
 # DIY木材カットプランナー
+
+- [https://nagatani.github.io/smart-wood-planner/](https://nagatani.github.io/smart-wood-planner/)
+
 ## 概要
 DIYや木工作業で、定尺の木材から指定した寸法のパーツを切り出す際に、必要な材料の本数と最適なカットプランを計算するアプリケーションです。
 
