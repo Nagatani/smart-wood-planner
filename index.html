@@ -14,24 +14,24 @@
     <form id="calculationForm" class="input-section">
       <h2><span role="img" aria-label="wrench">🔧</span> 入力パラメータ</h2>
       <div class="input-group">
-        <label for="materialLength">材料長さ (mm):</label>
-        <input type="number" id="materialLength" value="1820" step="1" min="1" required>
+        <label for="partsList">切り出す部材<span>[mm]</span>:<br><span>(カンマ/改行区切り)</span></label>
+        <textarea id="partsList" placeholder="例: 320, 244, 470..." rows="6" required>320,244,470,470,470,470,320,244,470,470,470,470</textarea>
       </div>
       <div class="input-group">
-        <label for="unitPrice">材料単価 (円):</label>
-        <input type="number" id="unitPrice" value="600" step="1" min="0" required>
-      </div>
-      <div class="input-group">
-        <label for="cutPrice">カット作業量 (円):</label>
-        <input type="number" id="cutPrice" value="50" step="1" min="0" required>
-      </div>
-      <div class="input-group">
-        <label for="bladeWidth">鋸刃 (mm):</label>
+        <label for="bladeWidth">鋸刃の幅<span>[mm]</span>:</label>
         <input type="number" id="bladeWidth" value="3" step="0.1" min="0" required>
       </div>
       <div class="input-group">
-        <label for="partsList">切り出す部材リスト (mm):<br>(カンマ/改行区切り)</label>
-        <textarea id="partsList" placeholder="例: 320, 244, 470..." rows="6" required>320,244,470,470,470,470,320,244,470,470,470,470</textarea>
+        <label for="materialLength">材料長さ<span>[mm]</span>:</label>
+        <input type="number" id="materialLength" value="1820" step="1" min="1" required>
+      </div>
+      <div class="input-group">
+        <label for="unitPrice">材料単価<span>[円]</span>:</label>
+        <input type="number" id="unitPrice" value="598" step="1" min="0" required>
+      </div>
+      <div class="input-group">
+        <label for="cutPrice">カット作業料金<span>[円]</span>:</label>
+        <input type="number" id="cutPrice" value="50" step="1" min="0" required>
       </div>
       <div id="error-message" class="error" style="display: none;"></div>
       <button type="submit"><span role="img" aria-label="calculator">🧮</span> 計算実行</button>
