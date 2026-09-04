@@ -13,10 +13,13 @@
 
     <form id="calculationForm" class="input-section">
       <h2><span role="img" aria-label="wrench">🔧</span> 入力パラメータ</h2>
-      <div class="input-group">
-        <label for="partsList">切り出す部材<span>[mm]</span>:<br><span>(カンマ/改行区切り)</span></label>
-        <textarea id="partsList" placeholder="例: 320, 244, 470..." rows="6"
-          required>320,244,470,470,470,470,320,244,470,470,470,470</textarea>
+      <div class="input-group input-group-parts">
+        <label for="partsList">切り出す部材<span>[mm]</span>:<br><span class="label-sub">(カンマ/改行区切り)</span></label>
+        <div class="parts-input-wrapper">
+          <div id="partsHelperContainer" class="parts-helper-container"></div>
+          <textarea id="partsList" placeholder="例: 320, 244, 470..." rows="4"
+            required>320,244,470,470,470,470,320,244,470,470,470,470</textarea>
+        </div>
       </div>
       <div class="input-group">
         <label for="bladeWidth">鋸刃の幅<span>[mm]</span>:</label>

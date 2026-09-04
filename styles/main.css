@@ -451,6 +451,431 @@ button:hover {
       display: block; /* ブロック要素に */
   }
 }
-/* --- レスポンシブ調整 --- */
+/* --- 部材入力サポートUI (Parts Helper) スタイル --- */
+.input-group-parts {
+  align-items: flex-start;
+}
+
+.input-group-parts label {
+  padding-top: 8px;
+}
+
+.parts-input-wrapper {
+  flex-grow: 1;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.parts-helper-card {
+  background: #ffffff;
+  border: 1px solid #d9e2ec;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* クイック追加セクション */
+.helper-quick-add {
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.quick-add-inputs {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.field-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field-item label {
+  width: auto;
+  text-align: left;
+  font-size: 0.85em;
+  color: #4a5568;
+  margin: 0;
+}
+
+.unit-input-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.unit-input-wrapper input {
+  width: 110px;
+  padding: 8px 30px 8px 10px;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 0;
+  box-sizing: border-box;
+}
+
+.unit-input-wrapper input:focus {
+  border-color: #3182ce;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(49, 130, 206, 0.2);
+}
+
+.unit-suffix {
+  position: absolute;
+  right: 10px;
+  font-size: 12px;
+  color: #a0aec0;
+  pointer-events: none;
+}
+
+/* 本数ステッパー */
+.stepper-wrapper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  height: 35px;
+}
+
+.stepper-wrapper input {
+  width: 48px;
+  text-align: center;
+  border: none;
+  font-size: 14px;
+  padding: 4px;
+  margin: 0;
+  -moz-appearance: textfield;
+}
+
+.stepper-wrapper input::-webkit-outer-spin-button,
+.stepper-wrapper input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.btn-step {
+  width: 32px;
+  height: 35px;
+  margin: 0;
+  padding: 0;
+  background: #f7fafc;
+  color: #4a5568;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.btn-step:hover {
+  background: #edf2f7;
+  color: #2b6cb0;
+}
+
+.btn-quick-add {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: auto;
+  padding: 8px 16px;
+  margin: 0;
+  height: 35px;
+  background: #27ae60;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.btn-quick-add:hover {
+  background: #219653;
+  transform: translateY(-1px);
+}
+
+.btn-quick-add:active {
+  transform: translateY(0);
+}
+
+/* 定番寸法プリセット */
+.helper-presets {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.presets-label {
+  font-size: 12px;
+  color: #718096;
+  margin-right: 4px;
+}
+
+.preset-btn {
+  display: inline-block;
+  width: auto;
+  margin: 0;
+  padding: 3px 10px;
+  font-size: 12px;
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.preset-btn:hover {
+  background: #e2e8f0;
+  color: #1e293b;
+  border-color: #cbd5e1;
+}
+
+/* 登録中チップセクション */
+.helper-chips-section {
+  background: #f8fafc;
+  border-radius: 6px;
+  padding: 12px;
+  border: 1px dashed #cbd5e1;
+}
+
+.helper-chips-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.chips-title {
+  font-size: 13px;
+  font-weight: bold;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.helper-stats-badge {
+  display: inline-block;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.btn-clear-all {
+  display: inline-block;
+  width: auto;
+  margin: 0;
+  padding: 2px 8px;
+  font-size: 11px;
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-clear-all:hover {
+  background: #fee2e2;
+  color: #dc2626;
+  border-color: #fca5a5;
+}
+
+.helper-chips-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 38px;
+  align-items: center;
+}
+
+.chips-empty-msg {
+  font-size: 12px;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+/* 個別部材チップ */
+.part-chip {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #bfdbfe;
+  border-left: 3px solid #3b82f6;
+  border-radius: 6px;
+  padding: 4px 8px;
+  gap: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.part-chip:hover {
+  box-shadow: 0 2px 5px rgba(59, 130, 246, 0.15);
+}
+
+.chip-length {
+  font-size: 13px;
+  color: #1e293b;
+}
+
+.chip-length strong {
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.chip-multiply {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.chip-stepper {
+  display: inline-flex;
+  align-items: center;
+  background: #f1f5f9;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+  height: 24px;
+}
+
+.chip-count {
+  font-size: 12px;
+  font-weight: bold;
+  color: #2563eb;
+  padding: 0 6px;
+  min-width: 14px;
+  text-align: center;
+}
+
+.btn-chip-step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-chip-step:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.btn-chip-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin: 0 0 0 2px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 1;
+  transition: all 0.15s;
+}
+
+.btn-chip-remove:hover {
+  background: #fee2e2;
+  color: #ef4444;
+}
+
+/* トグルボタン＆直接編集textarea */
+.helper-footer-toggle {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-toggle-raw {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  width: auto;
+  margin: 0;
+  padding: 4px 8px;
+  background: transparent;
+  color: #64748b;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s;
+}
+
+.btn-toggle-raw:hover {
+  color: #2563eb;
+  background: transparent;
+}
+
+.toggle-icon {
+  font-size: 9px;
+  text-decoration: none;
+}
+
+.parts-raw-textarea {
+  margin-top: 4px;
+  border-color: #cbd5e1;
+  font-family: monospace;
+  font-size: 13px;
+}
+
+/* 入力エラー時の揺れ演出 */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+
+.input-error-shake {
+  animation: shake 0.35s ease-in-out;
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2) !important;
+}
+
+/* スマホ表示対応 */
 @media (max-width: 600px) {
+  .quick-add-inputs {
+    align-items: stretch;
+  }
+
+  .unit-input-wrapper input {
+    width: 100%;
+  }
+
+  .btn-quick-add {
+    width: 100%;
+  }
 }

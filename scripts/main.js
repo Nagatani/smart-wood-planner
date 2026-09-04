@@ -1,7 +1,7 @@
-// js/main.js
 import { calculateOptimalCut } from './logic.js';
 import { parsePartsList } from './utils.js';
 import { initUI, clearResults, displayError, hideError, displayResultSummary, displayCutDetails, displayShareLink, showCopyFeedback } from './ui.js';
+import { initPartsHelper } from './parts-helper.js';
 
 // --- クエリパラメータのマッピング (短縮名 <-> フルネーム) ---
 const queryParamKeys = {
@@ -98,6 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const copyFeedback = document.getElementById('copyFeedback');
 
 
+  const partsHelperContainer = document.getElementById('partsHelperContainer');
+
   // Check if all elements were found
   const allElementsFound = form && materialLengthInput && unitPriceInput && cutPriceInput && bladeWidthInput && partsListInput && errorDisplay && resultSection && summaryDisplay && costsDisplay && detailsSection && detailsList && shareSection && shareUrlInput && copyShareUrlButton && copyFeedback;
   if (!allElementsFound) {
@@ -119,6 +121,9 @@ document.addEventListener('DOMContentLoaded', () => {
   applyQueryParams({
     materialLengthInput, unitPriceInput, cutPriceInput, bladeWidthInput, partsListInput
   });
+
+  // Initialize Parts Helper UI
+  initPartsHelper(partsListInput, partsHelperContainer);
 
   // Add form submit listener
   form.addEventListener('submit', (event) => {
