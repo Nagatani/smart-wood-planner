@@ -21,6 +21,5 @@ console.log('Result summary:', {
 outcome.result.packedBins.forEach((bin, i) => {
   const used = bin.reduce((a, b) => a + b, 0);
   const rem = 1820 - used;
-  const isMax = Math.abs(rem - outcome.result.maxRemaining) < 0.01;
-  console.log(`Material #${i + 1}: parts=${bin.length}, used=${used}mm, scrap=${rem}mm ${isMax ? '✨ [最長端材 (再利用推奨)]' : ''}`);
+  console.log(`Material #${i + 1}: parts=${bin.length}, used=${used}mm, scrap=${rem}mm`);
 });
