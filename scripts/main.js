@@ -125,6 +125,46 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize Parts Helper UI
   initPartsHelper(partsListInput, partsHelperContainer);
 
+  // Setup field preset buttons (materialLength, bladeWidth, cutPrice)
+  setupFieldPresets();
+
+  function setupFieldPresets() {
+    const presetGroups = document.querySelectorAll('.field-presets');
+    presetGroups.forEach(group => {
+      const targetId = group.dataset.target;
+      const targetInput = document.getElementById(targetId);
+      if (!targetInput) return;
+
+      const buttons = group.querySelectorAll('.field-preset-btn');
+
+      // 更新関数: 入力値に合致するボタンにアクティブクラスを付与
+      const updateActiveBtn = () => {
+        const val = targetInput.value;
+        buttons.forEach(btn => {
+          if (btn.dataset.val === val) {
+            btn.classList.add('is-active');
+          } else {
+            btn.classList.remove('is-active');
+          }
+        });
+      };
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          targetInput.value = btn.dataset.val;
+          targetInput.dispatchEvent(new Event('input', { bubbles: true }));
+          targetInput.dispatchEvent(new Event('change', { bubbles: true }));
+          targetInput.focus();
+          updateActiveBtn();
+        });
+      });
+
+      targetInput.addEventListener('input', updateActiveBtn);
+      targetInput.addEventListener('change', updateActiveBtn);
+      updateActiveBtn();
+    });
+  }
+
   // Add form submit listener
   form.addEventListener('submit', (event) => {
     event.preventDefault();

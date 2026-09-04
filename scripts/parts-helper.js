@@ -111,6 +111,20 @@ export function initPartsHelper(textarea, container) {
   // UI要素の構築
   container.innerHTML = `
     <div class="parts-helper-card">
+      <div class="helper-chips-section">
+        <div class="helper-chips-header">
+          <div class="chips-title">
+            <span role="img" aria-label="list">📋</span> 登録中の部材
+            <span id="helperStatsBadge" class="helper-stats-badge">0本 (0 mm)</span>
+          </div>
+          <button type="button" id="helperClearAllBtn" class="btn-clear-all" title="すべての部材をクリア">
+            全クリア
+          </button>
+        </div>
+        <div id="helperChipsList" class="helper-chips-list">
+          <span class="chips-empty-msg">部材がまだ登録されていません。上のフォームから追加してください。</span>
+        </div>
+      </div>
       <div class="helper-quick-add">
         <div class="quick-add-inputs">
           <div class="field-item">
@@ -144,24 +158,10 @@ export function initPartsHelper(textarea, container) {
         </div>
       </div>
 
-      <div class="helper-chips-section">
-        <div class="helper-chips-header">
-          <div class="chips-title">
-            <span role="img" aria-label="list">📋</span> 登録中の部材
-            <span id="helperStatsBadge" class="helper-stats-badge">0本 (0 mm)</span>
-          </div>
-          <button type="button" id="helperClearAllBtn" class="btn-clear-all" title="すべての部材をクリア">
-            全クリア
-          </button>
-        </div>
-        <div id="helperChipsList" class="helper-chips-list">
-          <span class="chips-empty-msg">部材がまだ登録されていません。上のフォームから追加してください。</span>
-        </div>
-      </div>
 
       <div class="helper-footer-toggle">
         <button type="button" id="toggleRawTextareaBtn" class="btn-toggle-raw" aria-expanded="false">
-          <span class="toggle-icon">▼</span> カンマ区切りテキストを直接編集
+          <span class="toggle-icon">▼</span> カンマ区切りテキストでの部材入力
         </button>
       </div>
     </div>
@@ -201,7 +201,7 @@ export function initPartsHelper(textarea, container) {
   // チップ描画処理
   function renderChips() {
     const groups = parseTextToPartGroups(textarea.value);
-    
+
     // 統計の計算
     let totalCount = 0;
     let totalLength = 0;
@@ -212,7 +212,7 @@ export function initPartsHelper(textarea, container) {
 
     if (totalCount === 0) {
       helperStatsBadge.textContent = '0本 (0 mm)';
-      helperChipsList.innerHTML = '<span class="chips-empty-msg">部材がまだ登録されていません。上のフォームから追加してください。</span>';
+      helperChipsList.innerHTML = '<span class="chips-empty-msg">部材がまだ登録されていません。必要な部材の長さを追加してください。</span>';
       return;
     }
 
