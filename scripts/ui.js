@@ -61,6 +61,8 @@ export function displayResultSummary(result) {
   if (elements.summary) {
     elements.summary.innerHTML = `
             <div class="summary-item"><span role="img" aria-label="wood log">🪵</span> <strong>必要材料本数:</strong> ${result.materialQuantity} 本</div>
+            <div class="summary-item"><span role="img" aria-label="sparkles">✨</span> <strong>最長端材 (再利用推奨):</strong> <span class="summary-highlight">${result.maxRemaining.toFixed(1)} mm</span></div>
+            <div class="summary-item"><span role="img" aria-label="triangular ruler">📐</span> <strong>木材利用効率:</strong> <span>${result.usageEfficiency.toFixed(1)} %</span> (総端材: ${result.totalWaste.toFixed(1)} mm)</div>
         `;
   }
   if (elements.costs) {
@@ -167,9 +169,12 @@ export function displayCutDetails(result) {
     const remainingMaterial = materialLength - totalLengthWithBlade;
 
     // Create text info div
+    const isLongestScrap = result.maxRemaining > 0.1 && Math.abs(remainingMaterial - result.maxRemaining) < 0.01;
+    const badgeHtml = isLongestScrap ? '<span class="badge-longest-waste">✨ 最長端材 (再利用推奨)</span>' : '';
+
     const textInfoDiv = document.createElement('div');
     textInfoDiv.innerHTML = `
-            <strong>材料 No.${index + 1}</strong> (使用長: ${totalLengthWithBlade.toFixed(1)}mm)<br>
+            <strong>材料 No.${index + 1}</strong> (使用長: ${totalLengthWithBlade.toFixed(1)}mm)${badgeHtml}<br>
             カットする部材 (元の長さ): [ ${itemsOriginalLength.map(l => l.toFixed(1)).join('mm, ')}mm ]<br>
             部材合計長 (刃幅除く): ${totalOriginalLength.toFixed(1)}mm<br>
             <strong>端材: ${remainingMaterial.toFixed(1)}mm</strong> (${((remainingMaterial / materialLength) * 100).toFixed(1)}%)

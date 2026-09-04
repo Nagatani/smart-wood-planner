@@ -115,6 +115,24 @@ button:hover {
   font-size: 1.1em;
 }
 
+.summary-highlight {
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.badge-longest-waste {
+  display: inline-block;
+  background: linear-gradient(135deg, #27ae60, #2ecc71);
+  color: #ffffff;
+  font-size: 0.78em;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 8px;
+  vertical-align: middle;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
 .cost-item span {
   font-weight: bold;
   color: #e74c3c;
